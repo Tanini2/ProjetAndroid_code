@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@drawable/background3">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation = "horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pseudo_textview"
+            android:textColor="@android:color/white"
+            android:textSize="18dp"
+            android:id="@+id/textview_pseudo"/>
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="18dp"
+            android:textAlignment="center"
+            android:id="@+id/edittext_pseudo"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation = "horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nb_questions"
+            android:textColor="@android:color/white"
+            android:textSize="18dp"
+            android:id="@+id/textview_nbquestions"/>
+
+        <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/numberpicker_nbquestions"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="10dp"
+            android:textSize="18dp"
+            android:background="@drawable/background_numberpicker"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_letsgo"
+        android:text="@string/letsgo_button"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_background"
+        android:layout_marginTop="100dp"
+        android:padding="10dp"
+        android:textSize="20dp"/>
+
+</LinearLayout>

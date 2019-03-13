@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@drawable/background3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:background="@drawable/coins_ronds">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="@string/filtres"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RB_noPokAsc"
+            android:orientation="horizontal"
+            android:id="@+id/RG_filtres">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/RB_noPokAsc"
+                    android:layout_weight="50"
+                    android:textSize="12dp"
+                    android:textColor="@android:color/white"
+                    android:text="@string/noPokASC"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:textColor="@android:color/white"
+                    android:textSize="12dp"
+                    android:id="@+id/RB_noPokDesc"
+                    android:text="@string/noPokDESC"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:textColor="@android:color/white"
+                    android:id="@+id/RB_nomPokAsc"
+                    android:textSize="12dp"
+                    android:text="@string/nomPokASC"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:textColor="@android:color/white"
+                    android:textSize="12dp"
+                    android:id="@+id/RB_nomPokDesc"
+                    android:text="@string/nomPokDESC"/>
+
+        </RadioGroup>
+        
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollview_liste">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/Linear_liste"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

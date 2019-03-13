@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Pokédex</string>
+    <string name="pokedex_button">Pokédex</string>
+    <string name="quiz_button">Quiz</string>
+    <string name="pseudo_textview">Votre pseudo : </string>
+    <string name="nb_questions">Nombre de questions : </string>
+    <string name="letsgo_button">Let\'s Go!</string>
+    <string name="tous_pokemon">Voir tous les Pokémon</string>
+    <string name="vedettes_textview">Pokémon vedettes</string>
+    <string name="title_evolution">Évolution</string>
+    <string name="title_mega_evolution">Méga Évolution</string>
+    <string name="title_pokedex_entries">Entrées Pokédex</string>
+    <string name="searchbar">Rechercher un Pokémon : </string>
+    <string name="filtres">Trier par : </string>
+    <string name="noPokASC">No Croissant</string>
+    <string name="noPokDESC">No Décroissant</string>
+    <string name="nomPokASC">Nom A-Z</string>
+    <string name="nomPokDESC">Nom Z-A</string>
+    <string name="pointage">Score : </string>
+    <string name="question_suivante">Next Question</string>
+    <string name="resultat">Résultat</string>
+    <string name="aller_resultat">Aller à la page des résultats</string>
+    <string name="rejouer">Rejouer</string>
+    <string name="retour_accueil">Retour à l\'accueil</string>
+    <string name="score_pourcentage10">Team Rocket has a better success rate than you.</string>
+    <string name="score_pourcentage20">I mean, it could be worse. You could have been crushed by a Snorlax</string>
+    <string name="score_pourcentage30">Misty\'s Psyduck could do better than you. And I mean it.</string>
+    <string name="score_pourcentage40">Charizard may be stubborn, but at least he succeeds.</string>
+    <string name="score_pourcentage50">Even Wobbuffet is faster than you.</string>
+    <string name="score_pourcentage60">I\'m sure you would get along perfectly with Slowpoke</string>
+    <string name="score_pourcentage70">Congrats! You have a passing grade.</string>
+    <string name="score_pourcentage80">You\'re not to the level of an Alakazam yet, but it\'s coming along.</string>
+    <string name="score_pourcentage90">Pokémon Trainer\'s blood flows in your veins.</string>
+    <string name="score_pourcentage100">You wanna be the very best, don\'t you? </string>
+    <string name="score_pourcentage_pile_100">You\'re a true Pokémon Master!</string>
+</resources>
