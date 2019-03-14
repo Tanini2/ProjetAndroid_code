@@ -32,19 +32,18 @@ public class quiz extends AppCompatActivity {
     private static final String NoQuestionShuffle = "noQuestionShuffle";
     private static final String CompteurQuestion = "mCompteurQuestion";
     private static final String Pointage = "pointage";
+    private static final String NoButton = "noButton";
 
     int mNbQuestions;
-    int mCompteurQuestion;
+    int mCompteurQuestion = 0;
     int noQuestion;
-    int pointage;
+    int pointage = 0;
     String mPseudo;
     Question questions;
     String json1;
     String[][] arrayQuestions;
     ArrayList<Integer> noQuestionShuffle;
     ArrayList<Integer> noButton;
-
-    Random r;
 
     TextView mTextQuestion;
     TextView mTextReponse;
@@ -70,11 +69,14 @@ public class quiz extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        noQuestionShuffle = new ArrayList<>();
+        noButton = new ArrayList<>();
         if (savedInstanceState != null){
             mCompteurQuestion = savedInstanceState.getInt(CompteurQuestion);
             noQuestionShuffle = savedInstanceState.getIntegerArrayList(NoQuestionShuffle);
             pointage = savedInstanceState.getInt(Pointage);
-            ChangerQuestion();
+            noButton = savedInstanceState.getIntegerArrayList(NoButton);
         }
         setContentView(R.layout.activity_quiz);
 
@@ -93,26 +95,19 @@ public class quiz extends AppCompatActivity {
 
         mImageQuestion = (ImageView) findViewById(R.id.img_question);
 
-        noQuestionShuffle = new ArrayList<>();
-        noButton = new ArrayList<>();
-
-        if(!noQuestionShuffle.isEmpty()){
-            noQuestionShuffle.clear();
-        }
-
-        for (int i = 3; i <= 6; i++){
-            noButton.add(i);
-        }
-        Collections.shuffle(noButton);
-        mCompteurQuestion = 0;
-        pointage = 0;
-
-        r = new Random();
         questions = GetJsonQuestions();
         arrayQuestions = questions.GetQuestions();
-        ShuffleQuestion();
 
-        ChangerQuestion();
+        if(!noQuestionShuffle.isEmpty()){
+           ChangerQuestion();
+        }
+        else{
+            ShuffleQuestion();
+            ShuffleButton();
+            ChangerQuestion();
+        }
+
+
 
         mReponse1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -236,6 +231,13 @@ public class quiz extends AppCompatActivity {
         Collections.shuffle(noQuestionShuffle);
     }
 
+    private void ShuffleButton(){
+        for (int i = 3; i <= 6; i++){
+            noButton.add(i);
+        }
+        Collections.shuffle(noButton);
+    }
+
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         Log.i("Pokedex", "onRestoreInstanceState");
@@ -248,6 +250,7 @@ public class quiz extends AppCompatActivity {
             mCompteurQuestion = savedInstanceState.getInt(CompteurQuestion);
             noQuestionShuffle = savedInstanceState.getIntegerArrayList(NoQuestionShuffle);
             pointage = savedInstanceState.getInt(Pointage);
+            noButton = savedInstanceState.getIntegerArrayList(NoButton);
         }
         super.onRestoreInstanceState(savedInstanceState);
     }
@@ -257,6 +260,7 @@ public class quiz extends AppCompatActivity {
         outState.putInt(CompteurQuestion, mCompteurQuestion);
         outState.putIntegerArrayList(NoQuestionShuffle, noQuestionShuffle);
         outState.putInt(Pointage, pointage);
+        outState.putIntegerArrayList(NoButton, noButton);
         super.onSaveInstanceState(outState);
     }
 }
