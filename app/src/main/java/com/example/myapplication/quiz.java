@@ -32,15 +32,18 @@ public class quiz extends AppCompatActivity {
     private static final String NoQuestionShuffle = "noQuestionShuffle";
     private static final String CompteurQuestion = "mCompteurQuestion";
     private static final String Pointage = "pointage";
-    private static final String NoButton = "noButton";
+    private static final String Repondu = "repondu";
+    private static final String TextChoisiButton = "textChoisiButton";
 
     int mNbQuestions;
     int mCompteurQuestion = 0;
     int noQuestion;
     int pointage = 0;
+    boolean repondu = false;
     String mPseudo;
     Question questions;
     String json1;
+    String textChoisiButton = "";
     String[][] arrayQuestions;
     ArrayList<Integer> noQuestionShuffle;
     ArrayList<Integer> noButton;
@@ -76,7 +79,8 @@ public class quiz extends AppCompatActivity {
             mCompteurQuestion = savedInstanceState.getInt(CompteurQuestion);
             noQuestionShuffle = savedInstanceState.getIntegerArrayList(NoQuestionShuffle);
             pointage = savedInstanceState.getInt(Pointage);
-            noButton = savedInstanceState.getIntegerArrayList(NoButton);
+            repondu= savedInstanceState.getBoolean(Repondu);
+            textChoisiButton = savedInstanceState.getString(TextChoisiButton);
         }
         setContentView(R.layout.activity_quiz);
 
@@ -86,6 +90,7 @@ public class quiz extends AppCompatActivity {
         mTextQuestion = (TextView) findViewById(R.id.text_question);
         mTextReponse = (TextView) findViewById(R.id.text_reponse);
         mPointage = (TextView) findViewById(R.id.pointage);
+        mPointage.setText(getString(R.string.pointage) + " " + pointage);
 
         mReponse1 = (Button) findViewById(R.id.buttonReponse1);
         mReponse2 = (Button) findViewById(R.id.buttonReponse2);
@@ -99,7 +104,8 @@ public class quiz extends AppCompatActivity {
         arrayQuestions = questions.GetQuestions();
 
         if(!noQuestionShuffle.isEmpty()){
-           ChangerQuestion();
+            ShuffleButton();
+            ChangerQuestion();
         }
         else{
             ShuffleQuestion();
@@ -167,7 +173,7 @@ public class quiz extends AppCompatActivity {
     }
 
     private void ChangerQuestion(){
-        mPointage.setText(getString(R.string.pointage) + " " + pointage);
+        repondu = false;
         noQuestion = noQuestionShuffle.get(mCompteurQuestion);
         mTextQuestion.setText(arrayQuestions[noQuestion - 1][1]);
         mTextReponse.setText(arrayQuestions[noQuestion - 1][3]);
@@ -197,12 +203,51 @@ public class quiz extends AppCompatActivity {
     }
 
     private void GetAnswer(Button mButton){
+        textChoisiButton = mButton.getText().toString();
         if(mButton.getText() != arrayQuestions[noQuestion - 1][3]){
             mButton.setTextColor(Color.parseColor("#FF0000"));
         }
         else{
             mButton.setTextColor(Color.parseColor("#7FFF00"));
             pointage++;
+            mPointage.setText(getString(R.string.pointage) + " " + pointage);
+        }
+        repondu = true;
+        mTextReponse.setVisibility(View.VISIBLE);
+    }
+
+    private void GetAnswer(){
+        if(mReponse1.getText().toString().equals(textChoisiButton)){
+            if(!textChoisiButton.equals(arrayQuestions[noQuestion - 1][3])){
+                mReponse1.setTextColor(Color.parseColor("#FF0000"));
+            }
+            else{
+                mReponse1.setTextColor(Color.parseColor("#7FFF00"));
+            }
+        }
+        else if(mReponse2.getText().toString().equals(textChoisiButton)){
+            if(!textChoisiButton.equals(arrayQuestions[noQuestion - 1][3])){
+                mReponse2.setTextColor(Color.parseColor("#FF0000"));
+            }
+            else{
+                mReponse2.setTextColor(Color.parseColor("#7FFF00"));
+            }
+        }
+        else if(mReponse3.getText().toString().equals(textChoisiButton)){
+            if(!textChoisiButton.equals(arrayQuestions[noQuestion - 1][3])){
+                mReponse3.setTextColor(Color.parseColor("#FF0000"));
+            }
+            else{
+                mReponse3.setTextColor(Color.parseColor("#7FFF00"));
+            }
+        }
+        else if(mReponse4.getText().toString().equals(textChoisiButton)){
+            if(!textChoisiButton.equals(arrayQuestions[noQuestion - 1][3])){
+                mReponse4.setTextColor(Color.parseColor("#FF0000"));
+            }
+            else{
+                mReponse4.setTextColor(Color.parseColor("#7FFF00"));
+            }
         }
         mTextReponse.setVisibility(View.VISIBLE);
     }
@@ -250,7 +295,13 @@ public class quiz extends AppCompatActivity {
             mCompteurQuestion = savedInstanceState.getInt(CompteurQuestion);
             noQuestionShuffle = savedInstanceState.getIntegerArrayList(NoQuestionShuffle);
             pointage = savedInstanceState.getInt(Pointage);
-            noButton = savedInstanceState.getIntegerArrayList(NoButton);
+            repondu= savedInstanceState.getBoolean(Repondu);
+            textChoisiButton = savedInstanceState.getString(TextChoisiButton);
+
+            if(repondu){
+                SetClickableButton(false);
+                GetAnswer();
+            }
         }
         super.onRestoreInstanceState(savedInstanceState);
     }
@@ -260,7 +311,8 @@ public class quiz extends AppCompatActivity {
         outState.putInt(CompteurQuestion, mCompteurQuestion);
         outState.putIntegerArrayList(NoQuestionShuffle, noQuestionShuffle);
         outState.putInt(Pointage, pointage);
-        outState.putIntegerArrayList(NoButton, noButton);
+        outState.putBoolean(Repondu, repondu);
+        outState.putString(TextChoisiButton, textChoisiButton);
         super.onSaveInstanceState(outState);
     }
 }
