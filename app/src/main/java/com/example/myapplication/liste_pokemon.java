@@ -29,10 +29,14 @@ public class liste_pokemon extends AppCompatActivity {
 
     private RadioGroup mRadioGroup;
 
-    private RadioButton mNoASC;
-    private RadioButton mNoDESC;
-    private RadioButton mNomASC;
-    private RadioButton mNomDESC;
+    private RadioButton mGen1;
+    private RadioButton mGen2;
+    private RadioButton mGen3;
+    private RadioButton mGen4;
+    private RadioButton mGen5;
+    private RadioButton mGen6;
+    private RadioButton mGen7;
+    private RadioButton mGen8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +45,18 @@ public class liste_pokemon extends AppCompatActivity {
 
         mLinearListe = (LinearLayout) findViewById(R.id.Linear_liste);
 
-        mRadioGroup = (RadioGroup) findViewById(R.id.RG_filtres);
+        mRadioGroup = (RadioGroup) findViewById(R.id.RB_filtres);
 
-        mNoASC = (RadioButton) findViewById(R.id.RB_noPokAsc);
-        mNoDESC = (RadioButton) findViewById(R.id.RB_noPokDesc);
-        mNomASC = (RadioButton) findViewById(R.id.RB_nomPokAsc);
-        mNomDESC = (RadioButton) findViewById(R.id.RB_nomPokDesc);
+        mGen1 = (RadioButton) findViewById(R.id.RB_gen1);
+        mGen2 = (RadioButton) findViewById(R.id.RB_gen2);
+        mGen3 = (RadioButton) findViewById(R.id.RB_gen3);
+        mGen4 = (RadioButton) findViewById(R.id.RB_gen4);
+        mGen5 = (RadioButton) findViewById(R.id.RB_gen5);
+        mGen6 = (RadioButton) findViewById(R.id.RB_gen6);
+        mGen7 = (RadioButton) findViewById(R.id.RB_gen7);
+        mGen8 = (RadioButton) findViewById(R.id.RB_gen8);
 
-        CheckRadioButton(mNoASC.getId());
+        CheckRadioButton(mGen1.getId());
 
         mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -58,10 +66,10 @@ public class liste_pokemon extends AppCompatActivity {
         });
     }
 
-    private void GetJsonInfosPokemon(String php){
+    private void GetJsonInfosPokemon(String noGeneration){
         //creating asynctask object and executing it
         try {
-            json1 = new JSON().execute("http://www.dicj.info/etu/vanta1337589/Android/"+ php + ".php").get();
+            json1 = new JSON().execute("http://www.dicj.info/etu/vanta1337589/Android/FiltreGenerations.php?noGeneration=" + noGeneration).get();
             pokemon = new Pokemon(json1);
             LoadList();
 
@@ -135,22 +143,29 @@ public class liste_pokemon extends AppCompatActivity {
     }
 
     private void CheckRadioButton(int checkedRadioID){
-        final String noPokASC = "NoPokemonASC";
-        final String noPokDESC = "NoPokemonDESC";
-        final String nomPokAZ = "NomPokemonAZ";
-        final String nomPokZA = "NomPokemonZA";
-
-        if(checkedRadioID == mNoASC.getId()){
-            GetJsonInfosPokemon(noPokASC);
+        if(checkedRadioID == mGen1.getId()){
+            GetJsonInfosPokemon(mGen1.getTag().toString());
         }
-        else if(checkedRadioID == mNoDESC.getId()){
-            GetJsonInfosPokemon(noPokDESC);
+        else if(checkedRadioID == mGen2.getId()){
+            GetJsonInfosPokemon(mGen2.getTag().toString());
         }
-        else if(checkedRadioID == mNomASC.getId()){
-            GetJsonInfosPokemon(nomPokAZ);
+        else if(checkedRadioID == mGen3.getId()){
+            GetJsonInfosPokemon(mGen3.getTag().toString());
         }
-        else if(checkedRadioID == mNomDESC.getId()){
-            GetJsonInfosPokemon(nomPokZA);
+        else if(checkedRadioID == mGen4.getId()){
+            GetJsonInfosPokemon(mGen4.getTag().toString());
+        }
+        else if(checkedRadioID == mGen5.getId()){
+            GetJsonInfosPokemon(mGen5.getTag().toString());
+        }
+        else if(checkedRadioID == mGen6.getId()){
+            GetJsonInfosPokemon(mGen6.getTag().toString());
+        }
+        else if(checkedRadioID == mGen7.getId()){
+            GetJsonInfosPokemon(mGen7.getTag().toString());
+        }
+        else if(checkedRadioID == mGen8.getId()){
+            GetJsonInfosPokemon(mGen8.getTag().toString());
         }
     }
 
@@ -165,52 +180,59 @@ public class liste_pokemon extends AppCompatActivity {
         if(mLinearListe.getChildCount() > 0){
             mLinearListe.removeAllViews();
         }
-
         LayoutInflater layoutInflater = LayoutInflater.from(liste_pokemon.this);
-        for (int i = 0; i < InfosPok.length; i++) {
-            if (Integer.parseInt(InfosPok[i][1]) == noPokemon) {
-                View view2 = layoutInflater.inflate(R.layout.textview_types, null);
-                if (InfosPok[i][4] != "null") {
-                    ((TextView) view2.findViewById(R.id.types)).setText(InfosPok[i][3] + " / " + InfosPok[i][4]);
-                } else {
-                    ((TextView) view2.findViewById(R.id.types)).setText(InfosPok[i][3]);
-                }
-                ((LinearLayout) vPrecedent.findViewById(R.id.partie_types)).addView(view2);
-            } else {
-                View view = layoutInflater.inflate(R.layout.bloc_liste_pokemon, null);
-                vPrecedent = view;
-                ((TextView) view.findViewById(R.id.no_nom_pokemon)).setText("#" + InfosPok[i][1] + " " + InfosPok[i][2]);
-                ((TextView) view.findViewById(R.id.no_nom_pokemon)).setTag(Integer.parseInt(InfosPok[i][1]));
-                ((TextView) view.findViewById(R.id.no_nom_pokemon)).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = fiche_pokemon.newIntent(liste_pokemon.this, (int) v.getTag());
-                        startActivity(intent);
+        if(InfosPok.length != 0){
+            for (int i = 0; i < InfosPok.length; i++) {
+                if (Integer.parseInt(InfosPok[i][1]) == noPokemon) {
+                    View view2 = layoutInflater.inflate(R.layout.textview_types, null);
+                    if (InfosPok[i][4] != "null") {
+                        ((TextView) view2.findViewById(R.id.types)).setText(InfosPok[i][3] + " / " + InfosPok[i][4]);
+                    } else {
+                        ((TextView) view2.findViewById(R.id.types)).setText(InfosPok[i][3]);
                     }
-                });
-                View view2 = layoutInflater.inflate(R.layout.textview_types, null);
-                ImageView view3 = ((ImageView) view.findViewById(R.id.img_pokemonListe));
-                String nameE = InfosPok[i][2];
-                view3.setId(Integer.parseInt(InfosPok[i][1]));
-                Picasso.get().load("http://www.dicj.info/etu/vanta1337589/Pokedex/images/Pokemon/" + ReturnNameForPicture(nameE) + ".png").resize(100, 100).into(view3);
-                view3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = fiche_pokemon.newIntent(liste_pokemon.this, v.getId());
-                        startActivity(intent);
-                    }
-                });
-                ((TextView) view2.findViewById(R.id.types)).setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
-                if (InfosPok[i][4] != "null") {
-                    ((TextView) view2.findViewById(R.id.types)).setText(InfosPok[i][3] + " / " + InfosPok[i][4]);
+                    ((LinearLayout) vPrecedent.findViewById(R.id.partie_types)).addView(view2);
                 } else {
-                    ((TextView) view2.findViewById(R.id.types)).setText(InfosPok[i][3]);
-                }
-                ((LinearLayout) view.findViewById(R.id.partie_types)).addView(view2);
-                mLinearListe.addView(view);
+                    View view = layoutInflater.inflate(R.layout.bloc_liste_pokemon, null);
+                    vPrecedent = view;
+                    ((TextView) view.findViewById(R.id.no_nom_pokemon)).setText("#" + InfosPok[i][1] + " " + InfosPok[i][2]);
+                    ((TextView) view.findViewById(R.id.no_nom_pokemon)).setTag(Integer.parseInt(InfosPok[i][1]));
+                    ((TextView) view.findViewById(R.id.no_nom_pokemon)).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = fiche_pokemon.newIntent(liste_pokemon.this, (int) v.getTag());
+                            startActivity(intent);
+                        }
+                    });
+                    View view2 = layoutInflater.inflate(R.layout.textview_types, null);
+                    ImageView view3 = ((ImageView) view.findViewById(R.id.img_pokemonListe));
+                    String nameE = InfosPok[i][2];
+                    view3.setId(Integer.parseInt(InfosPok[i][1]));
+                    Picasso.get().load("http://www.dicj.info/etu/vanta1337589/Pokedex/images/Pokemon/" + ReturnNameForPicture(nameE) + ".png").resize(100, 100).into(view3);
+                    view3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = fiche_pokemon.newIntent(liste_pokemon.this, v.getId());
+                            startActivity(intent);
+                        }
+                    });
+                    ((TextView) view2.findViewById(R.id.types)).setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
+                    if (InfosPok[i][4] != "null") {
+                        ((TextView) view2.findViewById(R.id.types)).setText(InfosPok[i][3] + " / " + InfosPok[i][4]);
+                    } else {
+                        ((TextView) view2.findViewById(R.id.types)).setText(InfosPok[i][3]);
+                    }
+                    ((LinearLayout) view.findViewById(R.id.partie_types)).addView(view2);
+                    mLinearListe.addView(view);
 
+                }
+                noPokemon = Integer.parseInt(InfosPok[i][1]);
             }
-            noPokemon = Integer.parseInt(InfosPok[i][1]);
+        }
+        else{
+            View view = layoutInflater.inflate(R.layout.bloc_a_venir, null);
+            ImageView view3 = ((ImageView) view.findViewById(R.id.image_a_venir));
+            Picasso.get().load("http://www.dicj.info/etu/vanta1337589/Pokedex/images/coming_soon_liste.png").into(view3);
+            mLinearListe.addView(view);
         }
     }
 }
