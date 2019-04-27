@@ -36,7 +36,7 @@ public class info_quiz extends AppCompatActivity {
                     mPseudo = mEditText.getText().toString();
                 }
                 else{
-                    mPseudo = "Guest";
+                    mPseudo = getString(R.string.no_name);
                 }
 
                 mNbQuestions = mNumberPicker.getValue();

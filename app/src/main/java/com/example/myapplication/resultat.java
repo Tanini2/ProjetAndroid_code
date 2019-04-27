@@ -104,4 +104,10 @@ public class resultat extends AppCompatActivity {
             mTextResult.setText(getString(R.string.score_pourcentage_pile_100));
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(resultat.this, MainActivity.class);
+        startActivity(intent);
+    }
 }
