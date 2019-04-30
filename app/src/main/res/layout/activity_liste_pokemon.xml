@@ -31,82 +31,50 @@
                 android:id="@+id/RB_filtres">
 
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/RadioButton"
                     android:id="@+id/RB_gen1"
-                    android:layout_weight="50"
-                    android:textSize="12dp"
                     android:tag="@string/gen1"
-                    android:textColor="@android:color/white"
                     android:text="@string/rb1"/>
 
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
+                    style="@style/RadioButton"
                     android:tag="@string/gen2"
-                    android:textColor="@android:color/white"
-                    android:textSize="12dp"
                     android:id="@+id/RB_gen2"
                     android:text="@string/rb2"/>
 
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/RadioButton"
                     android:tag="@string/gen3"
-                    android:layout_weight="50"
-                    android:textColor="@android:color/white"
                     android:id="@+id/RB_gen3"
-                    android:textSize="12dp"
                     android:text="@string/rb3"/>
 
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/RadioButton"
                     android:tag="@string/gen4"
-                    android:layout_weight="50"
-                    android:textColor="@android:color/white"
-                    android:textSize="12dp"
                     android:id="@+id/RB_gen4"
                     android:text="@string/rb4"/>
 
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/RadioButton"
                     android:tag="@string/gen5"
                     android:id="@+id/RB_gen5"
-                    android:layout_weight="50"
-                    android:textSize="12dp"
-                    android:textColor="@android:color/white"
                     android:text="@string/rb5"/>
 
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/RadioButton"
                     android:tag="@string/gen6"
-                    android:layout_weight="50"
-                    android:textColor="@android:color/white"
-                    android:textSize="12dp"
                     android:id="@+id/RB_gen6"
                     android:text="@string/rb6"/>
 
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/RadioButton"
                     android:tag="@string/gen7"
-                    android:layout_weight="50"
-                    android:textColor="@android:color/white"
                     android:id="@+id/RB_gen7"
-                    android:textSize="12dp"
                     android:text="@string/rb7"/>
 
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/RadioButton"
                     android:tag="@string/gen8"
-                    android:layout_weight="50"
-                    android:textColor="@android:color/white"
-                    android:textSize="12dp"
                     android:id="@+id/RB_gen8"
                     android:layout_marginRight="10dp"
                     android:text="@string/rb8"/>

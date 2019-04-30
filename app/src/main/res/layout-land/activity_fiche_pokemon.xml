@@ -8,11 +8,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
+            android:layout_width="275dp"
+            android:layout_height="127dp"
             android:layout_margin="10dp"
             android:layout_gravity="center"
             android:gravity="center"
@@ -31,12 +32,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
+                    style="@style/TextViewTitre"
                     android:id="@+id/no_nom_pok"/>
 
             </LinearLayout>
@@ -51,40 +47,27 @@
 
         <LinearLayout
             android:layout_width="275dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_background"
-            android:layout_margin="10dp"
-            android:paddingBottom="10dp"
+            style="@style/LinearLayout"
             android:orientation="vertical"
             android:id="@+id/evolution_section">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:text="@string/title_evolution"
-                android:textColor="@android:color/white"
-                android:textSize="20dp" />
+                style="@style/TextViewTitre"
+                android:text="@string/title_evolution"/>
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@android:color/black"/>
+                style="@style/View"/>
 
             <ScrollView
-                android:layout_width="match_parent"
+                style="@style/ScrollView"
                 android:layout_height="90dp"
-                android:overScrollMode="never"
-                android:scrollbars="none"
                 android:id="@+id/scrollview_evo">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/LittleLinear"
                     android:id="@+id/Linear_evo"
-                    android:paddingBottom="20dp"
-                    android:orientation="vertical">
+                    android:paddingBottom="20dp">
 
                 </LinearLayout>
 
@@ -94,39 +77,26 @@
 
         <LinearLayout
             android:layout_width="275dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_background"
-            android:layout_margin="10dp"
+            style="@style/LinearLayout"
             android:orientation="vertical"
-            android:paddingBottom="10dp"
             android:id="@+id/mega_evolution_section">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:text="@string/title_mega_evolution"
-                android:textColor="@android:color/white"
-                android:textSize="20dp" />
+                style="@style/TextViewTitre"
+                android:text="@string/title_mega_evolution"/>
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@android:color/black"/>
+                style="@style/View"/>
 
             <ScrollView
-                android:layout_width="match_parent"
+                style="@style/ScrollView"
                 android:layout_height="90dp"
-                android:overScrollMode="never"
-                android:scrollbars="none"
                 android:id="@+id/scrollview_megaEvo">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/Linear_megaEvo"
-                    android:orientation="vertical">
+                    style="@style/LittleLinear"
+                    android:id="@+id/Linear_megaEvo">
 
                 </LinearLayout>
 
@@ -137,42 +107,31 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_background"
-        android:layout_margin="10dp"
+        style="@style/LinearLayout"
+        android:layout_width="570dp"
         android:orientation="vertical"
         android:paddingBottom="20dp"
+        android:layout_gravity="center"
         android:id="@+id/pokedex_entries_section">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:text="@string/title_pokedex_entries"
-            android:textColor="@android:color/white"
-            android:textSize="20dp" />
+            style="@style/TextViewTitre"
+            android:text="@string/title_pokedex_entries"/>
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@android:color/black"/>
+            style="@style/View"/>
 
         <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
+            style="@style/ScrollView"
             android:layout_marginBottom="25dp"
-            android:overScrollMode="never"
-            android:scrollbars="none"
             android:id="@+id/scrollview_pokedexEntries">
 
             <TableLayout
-                android:layout_width="match_parent"
+                style="@style/LittleLinear"
                 android:layout_height="150dp"
                 android:paddingBottom="50dp"
-                android:id="@+id/Table_pokedex_entries"
-                android:orientation="vertical">
+                android:id="@+id/Table_pokedex_entries">
 
             </TableLayout>
 

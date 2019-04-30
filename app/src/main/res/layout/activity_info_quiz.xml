@@ -9,21 +9,11 @@
     android:background="@drawable/background3">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation = "horizontal"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:padding="10dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/button_background">
+        style="@style/LinearInfoQuiz1">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/TextViewInfoQuiz"
             android:text="@string/pseudo_textview"
-            android:textColor="@android:color/white"
-            android:textSize="18dp"
             android:id="@+id/textview_pseudo"/>
 
         <EditText
@@ -38,21 +28,11 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation = "horizontal"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:padding="10dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/button_background">
+        style="@style/LinearInfoQuiz1">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/TextViewInfoQuiz"
             android:text="@string/nb_questions"
-            android:textColor="@android:color/white"
-            android:textSize="18dp"
             android:id="@+id/textview_nbquestions"/>
 
         <NumberPicker
