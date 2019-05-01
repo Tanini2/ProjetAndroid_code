@@ -20,6 +20,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -27,17 +30,17 @@
             android:layout_height="200dp"
             android:padding="5dp"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/button_background"
+            android:background="@drawable/button_background_quiz"
             android:layout_gravity="center"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_margin="10dp"
                 android:textColor="@android:color/white"
                 android:textAlignment="center"
-                android:textSize="18dp"
+                android:textSize="20dp"
                 android:layout_gravity="center"
                 android:id="@+id/text_question"
                 android:gravity="center"/>
@@ -50,16 +53,18 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_gravity="center"
                     android:id="@+id/img_question"/>
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="65dp"
                     android:layout_margin="10dp"
                     android:layout_marginBottom="10dp"
-                    android:textColor="@android:color/holo_green_dark"
+                    android:textColor="@color/green"
                     android:textAlignment="center"
                     android:textSize="18dp"
                     android:visibility="invisible"
@@ -74,7 +79,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:orientation="vertical">
 
 
@@ -137,6 +141,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/question_suivante"
+                android:layout_marginTop="10dp"
                 android:visibility="invisible"
                 android:textColor="@android:color/white"
                 android:id="@+id/buttonNext"

@@ -36,6 +36,8 @@ public class fiche_pokemon extends AppCompatActivity {
     private LinearLayout mLinearMegaEvo;
     private LinearLayout mSectionMegaEvo;
     private LinearLayout mLinearTypes;
+    private LinearLayout mSectionInfos;
+    private LinearLayout mSectionPokedex;
 
     private TableLayout mTablePokEntries;
 
@@ -69,6 +71,8 @@ public class fiche_pokemon extends AppCompatActivity {
         mLinearMegaEvo = (LinearLayout) findViewById(R.id.Linear_megaEvo);
         mSectionMegaEvo = (LinearLayout) findViewById(R.id.mega_evolution_section);
         mLinearTypes = (LinearLayout) findViewById(R.id.Linear_types);
+        mSectionInfos = (LinearLayout) findViewById(R.id.section_InfosPok);
+        mSectionPokedex = (LinearLayout) findViewById(R.id.pokedex_entries_section);
 
         mTablePokEntries = (TableLayout) findViewById(R.id.Table_pokedex_entries);
 
@@ -80,6 +84,8 @@ public class fiche_pokemon extends AppCompatActivity {
         PokEntries = pokemon.getPokedexEntries();
 
         String name = InfosPok[0][2];
+
+        SetBackgroundColor(InfosPok);
 
         //Section InfosPokémon
         mNoNomPok.setText("#" + InfosPok[0][1] + " " + InfosPok[0][2]);
@@ -269,5 +275,72 @@ public class fiche_pokemon extends AppCompatActivity {
         }
 
         return nomCorrige;
+    }
+
+    private void SetBackgroundColor(String[][] InfosPok){
+        int backgroundName = 0;
+        switch (InfosPok[0][3]){
+            case "Bug":
+                backgroundName = R.drawable.background_bug;
+                break;
+            case "Dark":
+                backgroundName = R.drawable.background_dark;
+                break;
+            case "Dragon":
+                backgroundName = R.drawable.background_dragon;
+                break;
+            case "Electric":
+                backgroundName = R.drawable.background_electric;
+                break;
+            case "Fairy":
+                backgroundName = R.drawable.background_fairy;
+                break;
+            case "Fighting":
+                backgroundName = R.drawable.background_fighting;
+                break;
+            case "Fire":
+                backgroundName = R.drawable.background_fire;
+                break;
+            case "Flying":
+                backgroundName = R.drawable.background_flying;
+                break;
+            case "Ghost":
+                backgroundName = R.drawable.background_ghost;
+                break;
+            case "Grass":
+                backgroundName = R.drawable.background_grass;
+                break;
+            case "Ground":
+                backgroundName = R.drawable.background_ground;
+                break;
+            case "Ice":
+                backgroundName = R.drawable.background_ice;
+                break;
+            case "Normal":
+                backgroundName = R.drawable.background_normal;
+                break;
+            case "Poison":
+                backgroundName = R.drawable.background_poison;
+                break;
+            case "Psychic":
+                backgroundName = R.drawable.background_psychic;
+                break;
+            case "Rock":
+                backgroundName = R.drawable.background_rock;
+                break;
+            case "Steel":
+                backgroundName = R.drawable.background_steel;
+                break;
+            case "Water":
+                backgroundName = R.drawable.background_water;
+                break;
+            default:
+                backgroundName = R.drawable.button_background;
+                break;
+        }
+        mSectionPokedex.setBackgroundResource(backgroundName);
+        mSectionInfos.setBackgroundResource(backgroundName);
+        mSectionEvo.setBackgroundResource(backgroundName);
+        mSectionMegaEvo.setBackgroundResource(backgroundName);
     }
 }

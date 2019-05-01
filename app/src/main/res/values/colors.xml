@@ -4,4 +4,23 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#FFF</color>
     <color name="red">#800</color>
+    <color name="green">#7FFF00</color>
+    <color name="Bug">#ABB63F</color>
+    <color name="Dark">#393431</color>
+    <color name="Dragon">#4E4093</color>
+    <color name="Electric">#f9bf39</color>
+    <color name="Fairy">#E490E3</color>
+    <color name="Fighting">#5B221A</color>
+    <color name="Fire">#C82100</color>
+    <color name="Flying">#8A94EE</color>
+    <color name="Ghost">#44428A</color>
+    <color name="Grass">#75BF42</color>
+    <color name="Ground">#D1AC5F</color>
+    <color name="Ice">	#8CE9FF</color>
+    <color name="Normal">#C7C3BA</color>
+    <color name="Poison">#88307F</color>
+    <color name="Psychic">#E54B7F</color>
+    <color name="Rock">#B19752</color>
+    <color name="Steel">#A7A6B5</color>
+    <color name="Water">#2996F7</color>
 </resources>
