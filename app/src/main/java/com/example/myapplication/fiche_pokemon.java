@@ -43,6 +43,7 @@ public class fiche_pokemon extends AppCompatActivity {
 
     private static final String EXTRA_NOPOKEDEX = "com.example.myapplication.noPokedex";
 
+    //Reçoit le # Pokémon de pokemon_vedettes ou liste_pokemon et le traite
     public static Intent newIntent(Context packageContext, int noPokedex){
         Intent intent = new Intent(packageContext, fiche_pokemon.class);
 
@@ -76,6 +77,7 @@ public class fiche_pokemon extends AppCompatActivity {
 
         mTablePokEntries = (TableLayout) findViewById(R.id.Table_pokedex_entries);
 
+        //Va chercher les infos du Pokémon
         GetJsonInfosPokemon();
 
         InfosPok = pokemon.getInfosPokemon();
@@ -85,13 +87,15 @@ public class fiche_pokemon extends AppCompatActivity {
 
         String name = InfosPok[0][2];
 
+        //Set la couleur du background dépendamment du 1er type du Pokémon
         SetBackgroundColor(InfosPok);
 
-        //Section InfosPokémon
+        //Crée la Section InfosPokémon
         mNoNomPok.setText("#" + InfosPok[0][1] + " " + InfosPok[0][2]);
 
         LayoutInflater layoutInflater = LayoutInflater.from(fiche_pokemon.this);
 
+        //Si le pokémon a plus qu'un 2e type
         if(InfosPok.length > 1){
             for (int i = 0; i <InfosPok.length; i++){
                 View view = layoutInflater.inflate(R.layout.textview_types, null);
@@ -111,13 +115,14 @@ public class fiche_pokemon extends AppCompatActivity {
         }
         Picasso.get().load("http://www.dicj.info/etu/vanta1337589/Pokedex/images/Pokemon/" + ReturnNameForPicture(name) + ".png").into(mImgPok);
 
-        //Section EvolutionPokemon
+        //Crée la Section EvolutionPokemon
+        //Si la String est vide, cache le layout
         if(EvoPok[0][0] == ""){
             SetVisibilityLayout(mSectionEvo, 8);
         }
         else{
             SetVisibilityLayout(mSectionEvo, 0);
-
+            //Pour chaque évolution
             for (int i = 0; i <EvoPok.length; i++){
                 View view = layoutInflater.inflate(R.layout.bloc_evolution_pokemon, null);
                 ((TextView)view.findViewById(R.id.text_no_nomE)).setText("# " + EvoPok[i][0] + " " + EvoPok[i][1]);
@@ -138,18 +143,20 @@ public class fiche_pokemon extends AppCompatActivity {
 
         }
 
-        //Section Mega Evolution Pokemon
+        //Crée la Section Mega Evolution Pokemon
+        //Si la String est vide, cache le layout
         if(MegaEvoPok[0][0] == ""){
             SetVisibilityLayout(mSectionMegaEvo, 8);
         }
         else{
             SetVisibilityLayout(mSectionMegaEvo, 0);
-
+            //Pour chaque méga-évolution
             for (int i = 0; i <MegaEvoPok.length; i++){
                 View view = layoutInflater.inflate(R.layout.bloc_evolution_pokemon, null);
                 ((TextView)view.findViewById(R.id.text_no_nomE)).setText(MegaEvoPok[i][0] + " / " + MegaEvoPok[i][1]);
                 ((TextView)view.findViewById(R.id.text_type_descriptionE)).setText(MegaEvoPok[i][2]);
                 ImageView view2 = ((ImageView)view.findViewById(R.id.img_pokE));
+                //Gère les images
                 if(MegaEvoPok.length > 1){
                     if(i == 0) {
                         Picasso.get().load("http://www.dicj.info/etu/vanta1337589/Pokedex/images/Pokemon/mega_" + ReturnNameForPicture(name) + "_x.png").into(view2);
@@ -165,16 +172,19 @@ public class fiche_pokemon extends AppCompatActivity {
             }
         }
 
-        //Section Pokedex Entries
+        //Crée la Section Pokedex Entries
         int compteurGeneration = 0;
 
+        //Pour toutes les entrées Pokémon
         for(int i = 0; i < PokEntries.length; i ++){
+            //Si le noGénération de PokEntries est différent de la variable compteurGénération, on ajoute un TableRow avec le # Génération
             if(Integer.parseInt(PokEntries[i][2]) != compteurGeneration){
                 compteurGeneration = Integer.parseInt(PokEntries[i][2]);
                 View view = layoutInflater.inflate(R.layout.table_row_generation, null);
                 ((TextView)view.findViewById(R.id.row_generation)).setText("Generation " + PokEntries[i][2] );
                 mTablePokEntries.addView(view);
             }
+            //Sinon on crée un TableRow pour chaque entrée Pokédex
             View view = layoutInflater.inflate(R.layout.table_row_entry, null);
             ((TextView)view.findViewById(R.id.row_jeu)).setText(PokEntries[i][0]);
             ((TextView)view.findViewById(R.id.row_entry)).setText(PokEntries[i][1]);
@@ -198,9 +208,8 @@ public class fiche_pokemon extends AppCompatActivity {
             v.setVisibility(visibility);
         }
     }
-    //Crée les String JSON et les remplit
+    //Crée les String JSON et les remplit en passant le noPokémon en paramètre au PHP
     private void GetJsonInfosPokemon(){
-        //creating asynctask object and executing it
         try {
             json1 = new JSON().execute("http://www.dicj.info/etu/vanta1337589/Android/InfosPokemon.php?noPokemon=" + noPokemon).get();
             json2 = new JSON().execute("http://www.dicj.info/etu/vanta1337589/Android/Evolution.php?noPokemon=" + noPokemon).get();
@@ -217,6 +226,7 @@ public class fiche_pokemon extends AppCompatActivity {
         }
     }
 
+    //Change le nom des pokémon n'ayant pas le même nom que leur image
     private String ReturnNameForPicture(String name){
         String nomCorrige;
         switch(name)
@@ -277,6 +287,7 @@ public class fiche_pokemon extends AppCompatActivity {
         return nomCorrige;
     }
 
+    //Change le drawable utilisé pour le background selon le premier type du Pokémon
     private void SetBackgroundColor(String[][] InfosPok){
         int backgroundName = 0;
         switch (InfosPok[0][3]){

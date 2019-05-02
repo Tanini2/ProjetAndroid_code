@@ -39,14 +39,19 @@ public class quiz extends AppCompatActivity {
     int mCompteurQuestion = 0;
     int noQuestion;
     int pointage = 0;
+
     boolean repondu = false;
+
     String mPseudo;
-    Question questions;
     String json1;
     String textChoisiButton = "";
+
     String[][] arrayQuestions;
+
     ArrayList<Integer> noQuestionShuffle;
     ArrayList<Integer> noButton;
+
+    Question questions;
 
     TextView mTextQuestion;
     TextView mTextReponse;
@@ -60,6 +65,7 @@ public class quiz extends AppCompatActivity {
     Button mReponse4;
     Button mNextQuestion;
 
+    //Prend les paramètres envoyés par info_quiz et les traitent
     public static Intent newIntent(Context packageContext, String pseudo, int nbQuestions){
         Intent intent = new Intent(packageContext, quiz.class);
 
@@ -75,6 +81,9 @@ public class quiz extends AppCompatActivity {
 
         noQuestionShuffle = new ArrayList<>();
         noButton = new ArrayList<>();
+
+        //Si l'écran change de côté ou que l'activité est arrêtée ou mise en pause
+        //Pré-rempli le compteur de questions, l'array de questions, le pointage, si la question avait été répondue et le bouton choisi
         if (savedInstanceState != null){
             mCompteurQuestion = savedInstanceState.getInt(CompteurQuestion);
             noQuestionShuffle = savedInstanceState.getIntegerArrayList(NoQuestionShuffle);
@@ -100,9 +109,11 @@ public class quiz extends AppCompatActivity {
 
         mImageQuestion = (ImageView) findViewById(R.id.img_question);
 
+        //Va chercher la liste de questions dans la base de données
         questions = GetJsonQuestions();
         arrayQuestions = questions.GetQuestions();
 
+        //Si l'array de questions n'est pas vide
         if(!noQuestionShuffle.isEmpty()){
             ShuffleButton();
             ChangerQuestion();
@@ -151,7 +162,9 @@ public class quiz extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mCompteurQuestion++;
+                //Si on a atteint la dernière question
                 if(mCompteurQuestion == mNbQuestions){
+                    //Ouvre l'activité resultat et lui passe en paramètres le pseudo, le nombre de questions et le pointage
                     Intent intent = resultat.newIntent(quiz.this, mPseudo, mNbQuestions, pointage);
                     startActivity(intent);
                     return;
@@ -165,6 +178,7 @@ public class quiz extends AppCompatActivity {
         });
     }
 
+    //Remet la couleur des boutons à noir lorsqu'on clique sur le bouton Question Suivante
     private void ChangerCouleurBoutonNoir(){
         mReponse1.setTextColor(Color.parseColor("#FFFFFF"));
         mReponse2.setTextColor(Color.parseColor("#FFFFFF"));
@@ -172,6 +186,7 @@ public class quiz extends AppCompatActivity {
         mReponse4.setTextColor(Color.parseColor("#FFFFFF"));
     }
 
+    //Passe à la prochaine questions et change le texte de tous les TextView et Boutons
     private void ChangerQuestion(){
         repondu = false;
         noQuestion = noQuestionShuffle.get(mCompteurQuestion);
@@ -185,6 +200,8 @@ public class quiz extends AppCompatActivity {
         mReponse4.setText(arrayQuestions[noQuestion - 1][noButton.get(3)]);
     }
 
+    //Active ou désactive la possiblité de cliquer sur un bouton
+    //Set la visibilité du TextView contenant la réponse et du bouton Prochaine Question
     private void SetClickableButton(boolean clickable){
         mReponse1.setClickable(clickable);
         mReponse2.setClickable(clickable);
@@ -202,11 +219,14 @@ public class quiz extends AppCompatActivity {
 
     }
 
+    //Va chercher le texte du bouton choisi et le compare avec le champ du tableau contenant la réponse
     private void GetAnswer(Button mButton){
         textChoisiButton = mButton.getText().toString();
+        //Si ce n'est pas la bonne réponse, le texte du bouton devient rouge
         if(mButton.getText() != arrayQuestions[noQuestion - 1][3]){
             mButton.setTextColor(Color.parseColor("#FF0000"));
         }
+        //Sinon le bouton devient vert et on ajoute au pointage
         else{
             mButton.setTextColor(Color.parseColor("#7FFF00"));
             pointage++;
@@ -216,6 +236,7 @@ public class quiz extends AppCompatActivity {
         mTextReponse.setVisibility(View.VISIBLE);
     }
 
+    //On vérifie lequel des 4 boutons contient la bonne réponse, on set les couleurs dépendamment du résultat
     private void GetAnswer(){
         if(mReponse1.getText().toString().equals(textChoisiButton)){
             if(!textChoisiButton.equals(arrayQuestions[noQuestion - 1][3])){
@@ -252,6 +273,7 @@ public class quiz extends AppCompatActivity {
         mTextReponse.setVisibility(View.VISIBLE);
     }
 
+    //À l'aide du PHP et du JSON, obtient la liste des questions disponibles dans la base de données et crée un objet Question
     private Question GetJsonQuestions(){
         //creating asynctask object and executing it
         Question Ques = null;
@@ -269,6 +291,7 @@ public class quiz extends AppCompatActivity {
         return Ques;
     }
 
+    //Mélange les questions et ne prends que le nombre de questions demandé dans info_quiz
     private void ShuffleQuestion(){
         for (int i = 0; i < arrayQuestions.length; i++){
             noQuestionShuffle.add(Integer.parseInt(arrayQuestions[i][0]));
@@ -276,6 +299,7 @@ public class quiz extends AppCompatActivity {
         Collections.shuffle(noQuestionShuffle);
     }
 
+    //Mélange les boutons pour que la réponse ne soit pas toujours au même endroit
     private void ShuffleButton(){
         for (int i = 3; i <= 6; i++){
             noButton.add(i);
@@ -283,6 +307,7 @@ public class quiz extends AppCompatActivity {
         Collections.shuffle(noButton);
     }
 
+    //Si l'écran change de côté ou que l'activité est arrêtée ou mise en pause
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         Log.i("Pokedex", "onRestoreInstanceState");
@@ -298,6 +323,7 @@ public class quiz extends AppCompatActivity {
             repondu= savedInstanceState.getBoolean(Repondu);
             textChoisiButton = savedInstanceState.getString(TextChoisiButton);
 
+            //Si la questions à été répondue, désactive la cliquabilité du bouton et va afficher la réponse
             if(repondu){
                 SetClickableButton(false);
                 GetAnswer();
@@ -306,6 +332,8 @@ public class quiz extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
     }
 
+    // Sauvegarde le compteur de questions, l'array de questions, le pointage, si la question a été répondue et le bouton choisi
+    // Dans le cas où l'application serait tournée de côté, arrêtée ou mise en pause
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putInt(CompteurQuestion, mCompteurQuestion);

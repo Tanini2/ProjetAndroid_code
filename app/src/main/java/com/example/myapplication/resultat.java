@@ -16,8 +16,9 @@ public class resultat extends AppCompatActivity {
     private static final String EXTRA_POINTAGE = "com.example.myapplication.pointage";
 
     private int nbQuestions;
-    private String pseudo;
     private int pointage;
+
+    private String pseudo;
 
     Button mButtonRetourAccueil;
     Button mButtonRejouer;
@@ -26,6 +27,7 @@ public class resultat extends AppCompatActivity {
     TextView mScore;
     TextView mTextResult;
 
+    //Reçoit les paramètres de quiz et les traitent
     public static Intent newIntent(Context packageContext, String pseudo, int nbQuestions, int pointage){
         Intent intent = new Intent(packageContext, resultat.class);
 
@@ -48,6 +50,7 @@ public class resultat extends AppCompatActivity {
         mButtonRetourAccueil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Ouvre l'activité MainActivity
                 Intent intent = new Intent(resultat.this, MainActivity.class);
                 startActivity(intent);
             }
@@ -57,6 +60,7 @@ public class resultat extends AppCompatActivity {
         mButtonRejouer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Ouvre l'activité info_quiz
                 Intent intent = new Intent(resultat.this, info_quiz.class);
                 startActivity(intent);
             }
@@ -69,6 +73,9 @@ public class resultat extends AppCompatActivity {
         mScore.setText(pointage + " / " + nbQuestions);
 
         mTextResult = (TextView) findViewById(R.id.text_phrase_resultat);
+
+        //Calcule le score en pourcentage à partir du pointage et du nombre de questions répondues
+        //Set le texte dépendamment du score obtenu
         double score = ((double)pointage/(double)nbQuestions)*100;
         if(score < 10){
             mTextResult.setText(getString(R.string.score_pourcentage10));
@@ -105,6 +112,8 @@ public class resultat extends AppCompatActivity {
         }
     }
 
+    //Si l'utilisateur appuie sur le bouton Retour de son téléphone, ouvre l'activité MainActivity
+    //Empêche de retourner dans le quiz et de changer ses réponses
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(resultat.this, MainActivity.class);

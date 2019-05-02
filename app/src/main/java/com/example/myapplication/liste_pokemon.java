@@ -56,6 +56,7 @@ public class liste_pokemon extends AppCompatActivity {
         mGen7 = (RadioButton) findViewById(R.id.RB_gen7);
         mGen8 = (RadioButton) findViewById(R.id.RB_gen8);
 
+        //Check le bouton de la génération 1 à l'ouverture de l'activité
         CheckRadioButton(mGen1.getId());
 
         mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -66,6 +67,7 @@ public class liste_pokemon extends AppCompatActivity {
         });
     }
 
+    //Va chercher les informations des pokémons dans la base de données selon le # Génération choisi
     private void GetJsonInfosPokemon(String noGeneration){
         //creating asynctask object and executing it
         try {
@@ -82,6 +84,7 @@ public class liste_pokemon extends AppCompatActivity {
         }
     }
 
+    //Change le nom des pokémon n'ayant pas le même nom que leur image
     private String ReturnNameForPicture(String name){
         String nomCorrige;
         switch(name)
@@ -142,6 +145,7 @@ public class liste_pokemon extends AppCompatActivity {
         return nomCorrige;
     }
 
+    //Vérifie quel RadioButton a été coché
     private void CheckRadioButton(int checkedRadioID){
         if(checkedRadioID == mGen1.getId()){
             GetJsonInfosPokemon(mGen1.getTag().toString());
@@ -169,20 +173,26 @@ public class liste_pokemon extends AppCompatActivity {
         }
     }
 
+    //Crée une liste de Pokémon à partir de la liste reçue en JSON
     private void LoadList(){
-
         String[][] InfosPok;
+
         int noPokemon = 0;
+
         View vPrecedent = null;
 
         InfosPok = pokemon.getInfosPokemon();
 
+        //S'il y a quelque chose dans la liste, la vide avant de mettre les nouvelles données dedans
         if(mLinearListe.getChildCount() > 0){
             mLinearListe.removeAllViews();
         }
+
         LayoutInflater layoutInflater = LayoutInflater.from(liste_pokemon.this);
+        //Si InfosPok n'est pas vide, rempli autant de layout qu'il y a d'entrées dans InfosPok
         if(InfosPok.length != 0){
             for (int i = 0; i < InfosPok.length; i++) {
+                //Si le noPokémon de InfosPok est égal à la variable noPokemon, on inflate seulement la partie type et on l'ajoute à la vue précédente
                 if (Integer.parseInt(InfosPok[i][1]) == noPokemon) {
                     View view2 = layoutInflater.inflate(R.layout.textview_types, null);
                     if (InfosPok[i][4] != "null") {
@@ -191,6 +201,7 @@ public class liste_pokemon extends AppCompatActivity {
                         ((TextView) view2.findViewById(R.id.types)).setText(InfosPok[i][3]);
                     }
                     ((LinearLayout) vPrecedent.findViewById(R.id.partie_types)).addView(view2);
+                //Sinon on inflate un layout complet
                 } else {
                     View view = layoutInflater.inflate(R.layout.bloc_liste_pokemon, null);
                     vPrecedent = view;
@@ -199,6 +210,7 @@ public class liste_pokemon extends AppCompatActivity {
                     ((TextView) view.findViewById(R.id.no_nom_pokemon)).setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            //Ouvre l'activité fiche_pokemon et lui passe en paramètre le tag de la vue, soit le # du Pokémon
                             Intent intent = fiche_pokemon.newIntent(liste_pokemon.this, (int) v.getTag());
                             startActivity(intent);
                         }
@@ -211,13 +223,16 @@ public class liste_pokemon extends AppCompatActivity {
                     view3.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            //Ouvre l'activité fiche_pokemon et lui passe en paramètre le tag de la vue, soit le # du Pokémon
                             Intent intent = fiche_pokemon.newIntent(liste_pokemon.this, v.getId());
                             startActivity(intent);
                         }
                     });
                     ((TextView) view2.findViewById(R.id.types)).setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
+                    //Si le Pokémon a un deuxième type, on affiche les deux
                     if (InfosPok[i][4] != "null") {
                         ((TextView) view2.findViewById(R.id.types)).setText(InfosPok[i][3] + " / " + InfosPok[i][4]);
+                    //Sinon on affiche seulement le premier type
                     } else {
                         ((TextView) view2.findViewById(R.id.types)).setText(InfosPok[i][3]);
                     }
@@ -225,9 +240,11 @@ public class liste_pokemon extends AppCompatActivity {
                     mLinearListe.addView(view);
 
                 }
+                //On garde le numéro de Pokémon pour ceux ayant plusieurs 2e types
                 noPokemon = Integer.parseInt(InfosPok[i][1]);
             }
         }
+        //Si InfosPok est vide, affiche l'image à venir
         else{
             View view = layoutInflater.inflate(R.layout.bloc_a_venir, null);
             ImageView view3 = ((ImageView) view.findViewById(R.id.image_a_venir));

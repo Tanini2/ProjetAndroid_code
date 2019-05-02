@@ -35,6 +35,7 @@ public class pokemon_vedettes extends AppCompatActivity {
         ImagePok6 = (ImageView) findViewById(R.id.ImagePok6);
         mButton = (Button) findViewById(R.id.button_voirTout);
 
+        //Load toutes les images à l'aide de Picasso
         Picasso.get().load("http://www.dicj.info/etu/vanta1337589/Pokedex/images/Pokemon/bulbasaur.png").into(ImagePok1);
         Picasso.get().load("http://www.dicj.info/etu/vanta1337589/Pokedex/images/Pokemon/charizard.png").into(ImagePok2);
         Picasso.get().load("http://www.dicj.info/etu/vanta1337589/Pokedex/images/Pokemon/entei.png").into(ImagePok3);
@@ -42,6 +43,7 @@ public class pokemon_vedettes extends AppCompatActivity {
         Picasso.get().load("http://www.dicj.info/etu/vanta1337589/Pokedex/images/Pokemon/eevee.png").into(ImagePok5);
         Picasso.get().load("http://www.dicj.info/etu/vanta1337589/Pokedex/images/Pokemon/wormadam.png").into(ImagePok6);
 
+        //Ouvre l'activité liste_pokemon
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +52,7 @@ public class pokemon_vedettes extends AppCompatActivity {
             }
         });
 
+        //Selon l'image cliquée, ouvre l'activité fiche_pokemon en lui passant le # Pokémon
         ImagePok1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

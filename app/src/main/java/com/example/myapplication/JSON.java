@@ -27,29 +27,24 @@ public class JSON extends AsyncTask<String, Void, String> {
 
 
         try {
-            //creating a URL
+            //Crée l'URL
             URL url = new URL(urlEnvoyee[0]);
 
-            //Opening the URL using HttpURLConnection
+            //Ouvre l'URL
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
-            //StringBuilder object to read the string from the service
+            //Crée une StringBuilder et un BufferedReader
             StringBuilder sb = new StringBuilder();
-
-            //We will use a buffered reader to read the string from service
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-            //A simple string to read values from each line
             String json;
 
-            //reading until we don't find null
+            //Lire tant que la valeur n'est pas nulle
             while ((json = bufferedReader.readLine()) != null) {
-
-                //appending it to string builder
+                //Ajouter la valeur
                 sb.append(json + "\n");
             }
-
-            //finally returning the read string
+            //Retourner la string
             return sb.toString().trim();
         } catch (Exception e) {
             return null;

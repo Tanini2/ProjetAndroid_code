@@ -14,9 +14,10 @@ public class Pokemon {
     private String[][] megaEvolution;
     private String[][] pokedexEntries;
 
-
+    //Constructeur pour fiche_pokemon
     public Pokemon(String json1, String json2, String json3, String json4)throws JSONException{
 
+        //Renferme les informations de base du pokémon (# Génération, # Pokémon, Nom Pokémon et ses types)
         JSONArray jsonArray = new JSONArray(json1);
         infosPokemon = new String[jsonArray.length()][5];
         for(int i = 0; i < jsonArray.length(); i++){
@@ -28,7 +29,7 @@ public class Pokemon {
             infosPokemon[i][4] = obj.getString("Type2");
         }
 
-
+        //Renferme les informations relatives à l'évolution du Pokémon (# Pokémon Évolué, son nom, son type d'évolution et sa description
         JSONArray jsonArray2 = new JSONArray(json2);
         if(jsonArray2 != null && jsonArray2.length() > 0){
             evolution = new String[jsonArray2.length()][4];
@@ -40,11 +41,13 @@ public class Pokemon {
                 evolution[i][3]  = obj2.getString("Description");
             }
         }
+        //Si la string est vide, on retourne le tableau de string contenant une seule entrée : ""
         else{
             evolution = new String[1][1];
             evolution[0][0] = "";
         }
 
+        //Renferme les informations concernant la méga-évolution (les types et la pierre de Méga-Évolution nécessaire)
         JSONArray jsonArray3 = new JSONArray(json3);
         if(jsonArray3 != null && jsonArray3.length() > 0){
             megaEvolution = new String[jsonArray3.length()][3];
@@ -55,12 +58,13 @@ public class Pokemon {
                 megaEvolution[i][2] = obj3.getString("PierreMegaEvolution");
             }
         }
+        //Si la string est vide, on retourne le tableau de string contenant une seule entrée : ""
         else{
             megaEvolution = new String[1][1];
             megaEvolution[0][0] = "";
         }
 
-
+        //Renferme les informations concernant les entrées du Pokédex (Nom du jeu, l'entrée Pokédex et le # Génération
         JSONArray jsonArray4 = new JSONArray(json4);
         pokedexEntries = new String[jsonArray4.length()][3];
         for(int i = 0; i < jsonArray4.length(); i++){
@@ -71,7 +75,9 @@ public class Pokemon {
         }
     }
 
+    //Constructeur pour liste_pokemon
     public Pokemon(String json1) throws JSONException{
+        //Renferme les informations de base du pokémon (# Génération, # Pokémon, Nom Pokémon et ses types)
         JSONArray jsonArray = new JSONArray(json1);
         infosPokemon = new String[jsonArray.length()][5];
         for(int i = 0; i < jsonArray.length(); i++){

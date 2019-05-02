@@ -8,8 +8,8 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button mPokedex;
-    Button mQuiz;
+    private Button mPokedex;
+    private Button mQuiz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         mPokedex = (Button) findViewById(R.id.button_pokedex);
         mQuiz = (Button) findViewById(R.id.button_quiz);
 
+        //Ouvre l'activité pokemon_vedettes
         mPokedex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Ouvre l'activité info_quiz
         mQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
