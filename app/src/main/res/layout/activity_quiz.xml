@@ -8,22 +8,22 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:text="@string/pointage"
         android:textColor="@android:color/white"
-        android:background="@drawable/coins_ronds"
         android:textAlignment="center"
         android:textSize="20dp"
-        android:layout_gravity="center"
-        android:id="@+id/pointage"
-        android:gravity="center"/>
+        android:background="@drawable/coins_ronds"
+        android:id="@+id/pointage"/>
 
     <LinearLayout
         android:layout_width="275dp"
         android:layout_height="250dp"
+        android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:padding="5dp"
         android:background="@drawable/button_background_quiz"
-        android:layout_gravity="center"
         android:orientation="vertical">
 
         <TextView
@@ -80,11 +80,11 @@
         android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/question_suivante"
         android:layout_marginTop="10dp"
-        android:visibility="invisible"
+        android:text="@string/question_suivante"
         android:textColor="@android:color/white"
-        android:id="@+id/buttonNext"
-        android:background="@drawable/button_background"/>
+        android:visibility="invisible"
+        android:background="@drawable/button_background"
+        android:id="@+id/buttonNext"/>
 
 </LinearLayout>

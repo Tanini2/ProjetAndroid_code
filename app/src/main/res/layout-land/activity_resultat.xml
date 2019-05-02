@@ -6,15 +6,10 @@
     android:background="@drawable/background3">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        style="@style/TextViewResultat2"
         android:text="@string/resultat"
-        android:textColor="@android:color/white"
-        android:background="@drawable/coins_ronds"
-        android:textAlignment="center"
         android:textSize="20dp"
-        android:layout_gravity="center"
-        android:gravity="center"/>
+        android:background="@drawable/coins_ronds"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,67 +22,45 @@
             android:layout_width="275dp"
             android:layout_height="201dp"
             android:layout_marginLeft="20dp"
-            android:background="@drawable/button_background_quiz"
             android:layout_gravity="center"
+            android:background="@drawable/button_background_quiz"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:textColor="@android:color/white"
-                android:textAlignment="center"
+                style="@style/TextViewResultat2"
                 android:textSize="20dp"
-                android:layout_gravity="center"
-                android:id="@+id/text_pseudo"
-                android:gravity="center"/>
+                android:id="@+id/text_pseudo"/>
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:textColor="@android:color/white"
-                android:textAlignment="center"
+                style="@style/TextViewResultat2"
                 android:textSize="40dp"
-                android:layout_gravity="center"
-                android:id="@+id/text_score"
-                android:gravity="center"/>
+                android:id="@+id/text_score"/>
 
             <TextView
-                android:layout_width="match_parent"
+                style="@style/TextViewResultat2"
                 android:layout_height="97dp"
                 android:layout_margin="5dp"
-                android:textColor="@android:color/white"
-                android:textAlignment="center"
                 android:textSize="17dp"
-                android:layout_gravity="center"
-                android:id="@+id/text_phrase_resultat"
-                android:gravity="center"/>
+                android:id="@+id/text_phrase_resultat"/>
 
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="40dp"
+            android:orientation="vertical">
 
 
             <Button
-                android:layout_width="132.5dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="@android:color/white"
-                android:id="@+id/buttonRejouer"
+                style="@style/ButtonResultat"
+                android:layout_marginTop="0dp"
                 android:text="@string/rejouer"
-                android:background="@drawable/button_background"/>
+                android:id="@+id/buttonRejouer"/>
 
             <Button
-                android:layout_width="132.5dp"
-                android:layout_marginTop="30dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="@android:color/white"
-                android:id="@+id/buttonRetour"
+                style="@style/ButtonResultat"
                 android:text="@string/retour_accueil"
-                android:background="@drawable/button_background"/>
+                android:id="@+id/buttonRetour"/>
 
         </LinearLayout>
 

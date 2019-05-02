@@ -8,14 +8,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:text="@string/pointage"
         android:textColor="@android:color/white"
-        android:background="@drawable/coins_ronds"
         android:textAlignment="center"
         android:textSize="20dp"
-        android:layout_gravity="center"
-        android:id="@+id/pointage"
-        android:gravity="center"/>
+        android:background="@drawable/coins_ronds"
+        android:id="@+id/pointage"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,22 +28,16 @@
         <LinearLayout
             android:layout_width="275dp"
             android:layout_height="200dp"
-            android:padding="5dp"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/button_background_quiz"
+            android:padding="5dp"
             android:layout_gravity="center"
+            android:background="@drawable/button_background_quiz"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:textColor="@android:color/white"
-                android:textAlignment="center"
+                style="@style/TextViewQuiz"
                 android:textSize="20dp"
-                android:layout_gravity="center"
-                android:id="@+id/text_question"
-                android:gravity="center"/>
+                android:id="@+id/text_question"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -54,23 +48,19 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginTop="5dp"
-                    android:paddingBottom="5dp"
                     android:layout_marginLeft="10dp"
+                    android:paddingBottom="5dp"
                     android:layout_gravity="center"
                     android:id="@+id/img_question"/>
 
                 <TextView
-                    android:layout_width="match_parent"
+                    style="@style/TextViewQuiz"
                     android:layout_height="65dp"
-                    android:layout_margin="10dp"
                     android:layout_marginBottom="10dp"
                     android:textColor="@color/green"
-                    android:textAlignment="center"
                     android:textSize="18dp"
                     android:visibility="invisible"
-                    android:layout_gravity="center"
-                    android:id="@+id/text_reponse"
-                    android:gravity="center"/>
+                    android:id="@+id/text_reponse"/>
 
             </LinearLayout>
 
@@ -83,69 +73,43 @@
 
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_margin="10dp"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
+                style="@style/LinearQuiz">
 
                 <Button
-                    android:layout_width="132.5dp"
-                    android:layout_height="wrap_content"
+                    style="@style/ButtonQuiz"
                     android:layout_marginRight="10dp"
-                    android:padding="5dp"
-                    android:textColor="@android:color/white"
-                    android:id="@+id/buttonReponse1"
-                    android:background="@drawable/button_background"/>
+                    android:id="@+id/buttonReponse1"/>
 
                 <Button
-                    android:layout_width="132.5dp"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:textColor="@android:color/white"
-                    android:id="@+id/buttonReponse2"
-                    android:background="@drawable/button_background"/>
+                    style="@style/ButtonQuiz"
+                    android:id="@+id/buttonReponse2"/>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_margin="10dp"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
+                style="@style/LinearQuiz">
 
                 <Button
-                    android:layout_width="132.5dp"
-                    android:layout_height="wrap_content"
+                    style="@style/ButtonQuiz"
                     android:layout_marginRight="10dp"
-                    android:padding="5dp"
-                    android:textColor="@android:color/white"
-                    android:id="@+id/buttonReponse3"
-                    android:background="@drawable/button_background"/>
+                    android:id="@+id/buttonReponse3"/>
 
                 <Button
-                    android:layout_width="132.5dp"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:textColor="@android:color/white"
-                    android:id="@+id/buttonReponse4"
-                    android:background="@drawable/button_background"/>
+                    style="@style/ButtonQuiz"
+                    android:id="@+id/buttonReponse4"/>
 
             </LinearLayout>
 
             <Button
                 android:layout_width="275dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:text="@string/question_suivante"
-                android:layout_marginTop="10dp"
-                android:visibility="invisible"
                 android:textColor="@android:color/white"
-                android:id="@+id/buttonNext"
-                android:background="@drawable/button_background"/>
+                android:visibility="invisible"
+                android:background="@drawable/button_background"
+                android:id="@+id/buttonNext"/>
 
         </LinearLayout>
 

@@ -31,31 +31,31 @@
         style="@style/LinearInfoQuiz2">
 
         <TextView
-            android:text="@string/nb_questions"
             style="@style/TextViewInfoQuiz"
+            android:text="@string/nb_questions"
             android:id="@+id/textview_nbquestions"/>
 
         <NumberPicker
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:id="@+id/numberpicker_nbquestions"
-            android:textColor="@android:color/white"
             android:layout_marginLeft="10dp"
+            android:textColor="@android:color/white"
             android:textSize="18dp"
-            android:background="@drawable/background_numberpicker"/>
+            android:background="@drawable/background_numberpicker"
+            android:id="@+id/numberpicker_nbquestions"/>
 
     </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_letsgo"
-        android:text="@string/letsgo_button"
         android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="@string/letsgo_button"
         android:textAlignment="center"
+        android:textSize="20dp"
         android:textColor="@android:color/white"
         android:background="@drawable/button_background"
-        android:padding="10dp"
-        android:textSize="20dp"/>
+        android:id="@+id/button_letsgo"/>
 
 </LinearLayout>

@@ -28,8 +28,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:id="@+id/Linear_types"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:id="@+id/Linear_types">
 
                 <TextView
                     style="@style/TextViewTitre"
@@ -46,14 +46,14 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="275dp"
             style="@style/LinearLayout"
+            android:layout_width="275dp"
             android:orientation="vertical"
             android:id="@+id/evolution_section">
 
             <TextView
-                android:layout_width="match_parent"
                 style="@style/TextViewTitre"
+                android:layout_width="match_parent"
                 android:text="@string/title_evolution"/>
 
             <View
@@ -66,8 +66,8 @@
 
                 <LinearLayout
                     style="@style/LittleLinear"
-                    android:id="@+id/Linear_evo"
-                    android:paddingBottom="20dp">
+                    android:paddingBottom="20dp"
+                    android:id="@+id/Linear_evo">
 
                 </LinearLayout>
 
@@ -76,14 +76,14 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="275dp"
             style="@style/LinearLayout"
+            android:layout_width="275dp"
             android:orientation="vertical"
             android:id="@+id/mega_evolution_section">
 
             <TextView
-                android:layout_width="match_parent"
                 style="@style/TextViewTitre"
+                android:layout_width="match_parent"
                 android:text="@string/title_mega_evolution"/>
 
             <View
@@ -109,14 +109,14 @@
     <LinearLayout
         style="@style/LinearLayout"
         android:layout_width="570dp"
-        android:orientation="vertical"
         android:paddingBottom="20dp"
         android:layout_gravity="center"
+        android:orientation="vertical"
         android:id="@+id/pokedex_entries_section">
 
         <TextView
-            android:layout_width="match_parent"
             style="@style/TextViewTitre"
+            android:layout_width="match_parent"
             android:text="@string/title_pokedex_entries"/>
 
         <View

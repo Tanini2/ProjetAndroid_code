@@ -10,11 +10,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp"
         android:text="@string/vedettes_textview"
         android:textColor="@android:color/white"
         android:textSize="25dp"
-        android:padding="10dp"
-        android:layout_marginBottom="20dp"
         android:background="@drawable/button_background"/>
 
     <LinearLayout
@@ -64,11 +64,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
         android:text="@string/tous_pokemon"
         android:textColor="@android:color/white"
         android:background="@drawable/button_background"
-        android:layout_marginTop="20dp"
-        android:id="@+id/button_voirTout"
-        android:padding="10dp"/>
+        android:id="@+id/button_voirTout"/>
 
 </LinearLayout>

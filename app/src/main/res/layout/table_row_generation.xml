@@ -8,13 +8,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="5dp"
         android:textColor="@android:color/white"
         android:textAlignment="center"
         android:textStyle="bold"
-        android:id="@+id/row_generation"
+        android:textSize="18dp"
         android:layout_span="2"
-        android:padding="5dp"
         android:background="@drawable/border_cell_table"
-        android:textSize="18dp" />
+        android:id="@+id/row_generation"/>
 
 </TableRow>

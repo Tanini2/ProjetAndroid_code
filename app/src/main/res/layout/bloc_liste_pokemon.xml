@@ -20,8 +20,8 @@
             android:layout_marginLeft="10dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:id="@+id/partie_types"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/partie_types">
 
             <TextView
                 android:layout_width="wrap_content"

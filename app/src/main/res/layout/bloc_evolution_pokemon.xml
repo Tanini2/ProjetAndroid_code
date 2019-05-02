@@ -14,17 +14,13 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
+            style="@style/TextViewBlocEvo"
             android:id="@+id/text_no_nomE"
             android:textSize="18dp" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/TextViewBlocEvo"
             android:id="@+id/text_type_descriptionE"
-            android:textColor="@android:color/white"
             android:textSize="16dp" />
 
     </LinearLayout>
