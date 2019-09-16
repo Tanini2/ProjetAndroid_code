@@ -3,15 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background3">
+    android:background="@drawable/background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:background="@drawable/button_background"
+        android:background="#AAFFFFFF"
         android:orientation="horizontal"
         android:id="@+id/section_InfosPok">
 
@@ -49,9 +52,6 @@
             android:layout_width="match_parent"
             android:text="@string/title_evolution"/>
 
-        <View
-            style="@style/View"/>
-
         <ScrollView
             style="@style/ScrollView"
             android:id="@+id/scrollview_evo">
@@ -78,9 +78,6 @@
             android:layout_width="match_parent"
             android:text="@string/title_mega_evolution" />
 
-        <View
-            style="@style/View"/>
-
         <ScrollView
             style="@style/ScrollView"
             android:id="@+id/scrollview_megaEvo">
@@ -105,9 +102,6 @@
             style="@style/TextViewTitre"
             android:layout_width="match_parent"
             android:text="@string/title_pokedex_entries"/>
-
-        <View
-            style="@style/View"/>
 
         <ScrollView
             style="@style/ScrollView"

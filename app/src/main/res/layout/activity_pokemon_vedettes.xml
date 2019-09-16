@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_gravity="center"
     android:gravity="center"
-    android:background="@drawable/background3">
+    android:background="@drawable/background">
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,20 +13,22 @@
         android:layout_marginBottom="20dp"
         android:padding="10dp"
         android:text="@string/vedettes_textview"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textSize="25dp"
-        android:background="@drawable/button_background"/>
+        android:background="#AAFFFFFF"/>
 
     <LinearLayout
         style="@style/LinearPokVedette1">
 
         <ImageView
             style="@style/ImageView"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="30dp"
+            android:padding="10dp"
             android:id="@+id/ImagePok1"/>
 
         <ImageView
             style="@style/ImageView"
+            android:padding="10dp"
             android:id="@+id/ImagePok2"/>
 
     </LinearLayout>
@@ -37,11 +39,13 @@
 
         <ImageView
             style="@style/ImageView"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="30dp"
+            android:padding="10dp"
             android:id="@+id/ImagePok3"/>
 
         <ImageView
             style="@style/ImageView"
+            android:padding="10dp"
             android:id="@+id/ImagePok4"/>
 
     </LinearLayout>
@@ -52,11 +56,13 @@
 
         <ImageView
             style="@style/ImageView"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="30dp"
+            android:padding="10dp"
             android:id="@+id/ImagePok5"/>
 
         <ImageView
             style="@style/ImageView"
+            android:padding="10dp"
             android:id="@+id/ImagePok6"/>
 
     </LinearLayout>
@@ -67,7 +73,7 @@
         android:layout_marginTop="20dp"
         android:padding="10dp"
         android:text="@string/tous_pokemon"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:background="@drawable/button_background"
         android:id="@+id/button_voirTout"/>
 
