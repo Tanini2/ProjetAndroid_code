@@ -14,7 +14,7 @@
         android:layout_marginRight="10dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:background="#AAFFFFFF"
+        android:background="#CCFFFFFF"
         android:orientation="horizontal"
         android:id="@+id/section_InfosPok">
 

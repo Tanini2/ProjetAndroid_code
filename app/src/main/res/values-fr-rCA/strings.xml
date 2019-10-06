@@ -11,7 +11,7 @@
     <string name="title_mega_evolution">Méga Évolution</string>
     <string name="title_pokedex_entries">Entrées Pokédex</string>
     <string name="searchbar">Rechercher un Pokémon : </string>
-    <string name="filtres">Générations : </string>
+    <string name="filtres">Trier par génération : </string>
     <string name="rb1">Gen I</string>
     <string name="rb2">Gen II</string>
     <string name="rb3">Gen III</string>
