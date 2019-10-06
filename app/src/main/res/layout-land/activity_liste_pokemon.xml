@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:background="@drawable/background2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:background="@color/Grass">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="@string/filtres"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView_rb">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/RB_gen1"
+                android:orientation="horizontal"
+                android:id="@+id/RB_filtres">
+
+                <RadioButton
+                    style="@style/RadioButton"
+                    android:tag="@string/gen1"
+                    android:text="@string/rb1"
+                    android:id="@+id/RB_gen1"/>
+
+                <RadioButton
+                    style="@style/RadioButton"
+                    android:tag="@string/gen2"
+                    android:text="@string/rb2"
+                    android:id="@+id/RB_gen2"/>
+
+                <RadioButton
+                    style="@style/RadioButton"
+                    android:tag="@string/gen3"
+                    android:text="@string/rb3"
+                    android:id="@+id/RB_gen3"/>
+
+                <RadioButton
+                    style="@style/RadioButton"
+                    android:tag="@string/gen4"
+                    android:text="@string/rb4"
+                    android:id="@+id/RB_gen4"/>
+
+                <RadioButton
+                    style="@style/RadioButton"
+                    android:tag="@string/gen5"
+                    android:text="@string/rb5"
+                    android:id="@+id/RB_gen5"/>
+
+                <RadioButton
+                    style="@style/RadioButton"
+                    android:tag="@string/gen6"
+                    android:text="@string/rb6"
+                    android:id="@+id/RB_gen6"/>
+
+                <RadioButton
+                    style="@style/RadioButton"
+                    android:tag="@string/gen7"
+                    android:text="@string/rb7"
+                    android:id="@+id/RB_gen7"/>
+
+                <RadioButton
+                    style="@style/RadioButton"
+                    android:tag="@string/gen8"
+                    android:layout_marginRight="10dp"
+                    android:text="@string/rb8"
+                    android:id="@+id/RB_gen8"/>
+
+            </RadioGroup>
+
+        </HorizontalScrollView>
+        
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollview_liste">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/Linear_liste">
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>
