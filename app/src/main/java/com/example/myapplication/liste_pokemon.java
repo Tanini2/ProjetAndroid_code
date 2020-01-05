@@ -137,6 +137,9 @@ public class liste_pokemon extends AppCompatActivity {
             case "Tapu Fini":
                 nomCorrige = "tapufini";
                 break;
+            case "Sirfetch'd":
+                nomCorrige = "sirfetchd";
+                break;
             default:
                 nomCorrige = name.toLowerCase();
                 break;
