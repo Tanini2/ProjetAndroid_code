@@ -282,6 +282,9 @@ public class fiche_pokemon extends AppCompatActivity {
             case "Sirfetch'd":
                 nomCorrige = "sirfetchd";
                 break;
+            case "Mr. Rime":
+                nomCorrige = "mrrime";
+                break;
             default:
                 nomCorrige = name.toLowerCase();
                 break;
