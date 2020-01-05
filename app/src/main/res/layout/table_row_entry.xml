@@ -7,13 +7,14 @@
 
     <TextView
         style="@style/TextViewTableRow"
-        android:layout_weight="25"
+        android:layout_width="95dp"
         android:paddingLeft="5dp"
+        android:textAlignment="viewStart"
         android:id="@+id/row_jeu"/>
 
     <TextView
         style="@style/TextViewTableRow"
-        android:layout_weight="75"
+        android:layout_width="275dp"
         android:paddingRight="5dp"
         android:textAlignment="viewEnd"
         android:id="@+id/row_entry"/>
